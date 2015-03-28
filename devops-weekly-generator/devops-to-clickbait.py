@@ -21,16 +21,25 @@ class ClickBait:
         title = title.replace("BLANK", subject)
         title = title.replace('[#]', str(random.randint(3, 10)))
         title = self.un_pluralize(title, subject)
-        return title.title().replace("'S", "'s")
+        title = title.title()
+        title = title.replace("'S", "'s")
+        title = title.replace("'T", "'t")
+        return title
 
     def un_pluralize(self, title, subject):
         """Takes out S's, is/are based on if the subject is plural or not"""
         if self.is_plural(subject):
             title = title.replace("[is|are]", "are")
+            title = title.replace("[it|they]", "they")
+            title = title.replace("[isn't|aren't]", "are't")
             title = title.replace("[s]", "s")
+            title = title.replace("[s2]", "s")
         else:
             title = title.replace("[is|are]", "is")
+            title = title.replace("[it|they]", "it")
+            title = title.replace("[isn't|aren't]", "isn't")
             title = title.replace("[s]", "")
+            title = title.replace("[s2]", "")
         return title
 
     def is_plural(self, subject):
