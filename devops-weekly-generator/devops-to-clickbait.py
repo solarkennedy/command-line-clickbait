@@ -60,5 +60,7 @@ def read_csv():
 
 if __name__ == '__main__':
     cb = ClickBait()
-    for title, link in read_csv():
-        print '"%s","%s"' % (cb.baitify(title), link)
+    links = list(read_csv())
+    for i in xrange(3):
+        link, title = random.choice(links)
+        print '%s: %s' % (cb.baitify(link), title)
