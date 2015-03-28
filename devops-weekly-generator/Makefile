@@ -9,5 +9,5 @@ devops.xml:
 devops.csv: devops.xml
 	./extract-devopsy-articles.py > devops.csv
 
-clickbait.csv: lbgen.xml
+clickbait.csv: lbgen.xml devops.csv
 	./devops-to-clickbait.py > clickbait.csv
