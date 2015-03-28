@@ -53,7 +53,7 @@ class ClickBait:
 
 def read_csv():
     """Genrator that returns tupels of title, link"""
-    with open('devops.csv') as f:
+    with open('clickbait.csv') as f:
         for line in f:
             yield line.strip().replace('"', '').split(',')
 
