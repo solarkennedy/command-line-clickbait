@@ -1,8 +1,8 @@
-== command-line-clickbait
+## command-line-clickbait
 
 A command line tool to spit out clickbait articles to keep your users engaged or something.
 
-=== Example
+### Example
 
 ```
 $ make
@@ -12,11 +12,11 @@ Users who ran that command also liked:
   How The Addictive Nature Of Automation Make You A Better Lover: https://speakerdeck.com/nathenharvey/the-addictive-nature-of-automation
 ```
 
-=== TODO
+### TODO
 
 * Setup the url shortener
 * Maybe other article sources
 
-=== Acknowledgments
+### Acknowledgments
 
 Uses the clickbait link word database from http://www.portent.com/tools/title-maker
