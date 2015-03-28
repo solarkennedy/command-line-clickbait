@@ -24,7 +24,8 @@ def extract_news_links(html):
 
 def extract_human_words(link):
     url = link.text.split('?')[0]
-    url = url.split('.')[0]
+    url = url.split('.html')[0]
+    url = url.split('.php')[0]
     if url.endswith('/'):
         last_part = url.split('/')[-2]
     else:
