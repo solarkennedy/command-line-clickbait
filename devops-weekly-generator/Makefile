@@ -11,3 +11,6 @@ devops.csv: devops.xml
 
 clickbait.csv: lbgen.xml devops.csv
 	./devops-to-clickbait.py > clickbait.csv
+
+clean:
+	rm *.csv
