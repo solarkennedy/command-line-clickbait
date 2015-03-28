@@ -60,10 +60,10 @@ def read_csv():
 
 def shorten(url):
     """Retruns a shortened version of the url"""
-    return "(%s)" % url
+    return "%s" % url
 
 
 if __name__ == '__main__':
     cb = ClickBait()
     for title, link in read_csv():
-        print cb.baitify(title), shorten(link)
+        print '"%s","%s"' % (cb.baitify(title), shorten(link))
