@@ -58,9 +58,14 @@ def read_csv():
             yield line.strip().replace('"', '').split(',')
 
 
+def blue(text):
+    return "\033[36m%s\033[0m" % text
+
+
 if __name__ == '__main__':
     cb = ClickBait()
     links = list(read_csv())
+    print "Users who ran that command also liked:"
     for i in xrange(3):
-        link, title = random.choice(links)
-        print '%s: %s' % (cb.baitify(link), title)
+        title, link = random.choice(links)
+        print '  %s: %s' % (cb.baitify(title), blue(link))
