@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Reads in a CSV of title,link and click-bait-ify's it,
 also shortens the url for CLI output"""
+import os
 import random
 import xml.etree.ElementTree as ET
 
@@ -8,7 +9,8 @@ import xml.etree.ElementTree as ET
 class ClickBait:
     def __init__(self):
         titles = []
-        tree = ET.parse('lbgen.xml')
+        local_dir = os.path.dirname(os.path.realpath(__file__))
+        tree = ET.parse(os.path.join(local_dir, 'lbgen.xml'))
         root = tree.getroot()
         for child in root:
             bait_array = [x.text for x in child.getchildren()[0:4]]
@@ -53,7 +55,9 @@ class ClickBait:
 
 def read_csv():
     """Genrator that returns tupels of title, link"""
-    with open('clickbait.csv') as f:
+    local_dir = os.path.dirname(os.path.realpath(__file__))
+    csv_filename = os.path.join(local_dir, 'clickbait.csv')
+    with open(csv_filename) as f:
         for line in f:
             yield line.strip().replace('"', '').split(',')
 
