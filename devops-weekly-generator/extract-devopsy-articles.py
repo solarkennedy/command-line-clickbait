@@ -47,10 +47,14 @@ def link_is_baity(link):
     return last_part.count('-') > 3
 
 
+def shorten(url):
+    return url
+
+
 if __name__ == '__main__':
     feed = feedparser.parse('devops.xml')
     for entry in feed['entries']:
         content = entry['content'][0]['value']
         for link in extract_news_links(content):
             if link_is_baity(link):
-                print '"%s","%s"' % (extract_human_words(link), link.text)
+                print '"%s","%s"' % (extract_human_words(link), shorten(link.text))
